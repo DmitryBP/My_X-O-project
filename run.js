@@ -1,14 +1,8 @@
-import { currenPlayer } from "./index.js";
-import { showField } from "./showField.js";
-import { step } from "./step.js";
+import { currenPlayer } from './isGameOver.js';
+import { start } from './startGame.js';
+import { step } from './step.js';
 
-
-console.log('Игра началась!');
-
-showField();
-
-console.log(`Ходит "${currenPlayer?'x':'o'}"`);
-
+start()
 step(currenPlayer, 1);
-step(currenPlayer, 1);
-
+step(currenPlayer, 2);
+step(currenPlayer, 3);

@@ -3,6 +3,4 @@ export let arr = [
   ['', '', ''],
   ['', '', ''],
 ];
-export let currenPlayer = true;
-
-
+export let startPlayer = 'x'
