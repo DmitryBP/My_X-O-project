@@ -1,30 +1,22 @@
-import { arr } from './index.js';
 import { startPlayer } from './index.js';
+import { isGorizontWin } from './isGorizontWin.js';
+import { isVerticalWin } from './isVerticalWin.js';
 
 export let currenPlayer;
-if (startPlayer == 'x') {
-  currenPlayer = true;
-} else if (startPlayer == 'o') currenPlayer = false;
+
+startPlayer == 'x'
+  ? (currenPlayer = true)
+  : startPlayer == 'o'
+  ? (currenPlayer = false)
+  : null;
 
 export let isGameOver = () => {
   let gameOver = false;
-  let row = '';
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length; j++) {
-      row += arr[j][i];
-      if (arr[i].join('') == 'xxx' || row == 'xxx') {
-        gameOver = !gameOver;
-        console.log("'x' победили");
-      } else if (arr[i].join('') == 'ooo' || row == 'ooo') {
-        console.log("'o' победили");
-        gameOver = !gameOver;
-      }
-    }
-    row = '';
-  }
+  isGorizontWin(gameOver)?gameOver=true:null;
+  isVerticalWin(gameOver)?gameOver=true:null;;
+
   if (!gameOver) {
     currenPlayer = !currenPlayer;
     console.log(`Ход преходит к "${currenPlayer ? 'x' : 'o'}"`);
-    console.log(row);
   }
 };
